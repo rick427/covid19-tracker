@@ -3,12 +3,30 @@ import {Card, CardContent, Typography, Grid} from '@material-ui/core';
 import CountUp from 'react-countup';
 import cx from 'classnames';
 import styles from './Cards.module.css';
+import {css} from '@emotion/core';
+import PacmanLoader from 'react-spinners/PacmanLoader'
 
 const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
+
+    const override = css`
+      display: block;
+      margin: auto;
+      border-color: red;
+    `;
     
     if(!confirmed){
-        return 'Loading...'
+        return (
+            <div style={{marginTop: '10%'}}>
+                <PacmanLoader
+                    css={override}
+                    size={25}
+                    color={"#FF7F7F"}
+                    loading={true}
+                /> 
+            </div>   
+        )
     }
+
 
     return (
         <div className={styles.container}>

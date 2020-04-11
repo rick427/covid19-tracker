@@ -21,14 +21,23 @@ class App extends Component {
         this.setState({data: fetchedData, country});
     }
 
+    isEmpty = obj => {
+        for(let key in obj){
+            if(obj.hasOwnProperty(key)){
+                return false;
+            }
+        }
+        return true
+    }
+
     render() {
         const {data, country} = this.state;
         return (
             <div className={styles.container}>
-                <img className={styles.image} src={covid} alt="covid-image"/>
+                {!this.isEmpty(data) && <img className={styles.image} src={covid} alt="covid-image"/>}
                 <Cards data={data}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange}/>
-                <Chart data={data} country={country}/>
+                {!this.isEmpty(data) &&  <CountryPicker handleCountryChange={this.handleCountryChange}/>}
+                {!this.isEmpty(data) && <Chart data={data} country={country}/>}
             </div>
         )
     }
