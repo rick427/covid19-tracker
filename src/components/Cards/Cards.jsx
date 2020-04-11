@@ -16,7 +16,7 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
     
     if(!confirmed){
         return (
-            <div style={{marginTop: '10%'}}>
+            <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
                 <PacmanLoader
                     css={override}
                     size={25}
