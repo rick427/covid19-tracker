@@ -4,6 +4,22 @@ body{
 
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.image{
+    width: 370px;
+    margin-top: 50px;
+}
+
+@media(max-width: 770px){
+    .container{
+        margin: 0 10%;
+    }
+
+    .image{
+        width: 100%;
+    }
 }

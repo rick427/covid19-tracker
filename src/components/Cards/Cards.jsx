@@ -5,6 +5,7 @@ import cx from 'classnames';
 import styles from './Cards.module.css';
 
 const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
+    
     if(!confirmed){
         return 'Loading...'
     }
@@ -24,7 +25,7 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
                             {new Date(lastUpdate).toDateString()}
                         </Typography>
                         <Typography variant="body2">
-                            Number of active COVID-19 cases
+                            Number of infected COVID-19 cases
                         </Typography>
                     </CardContent>
                 </Grid>
